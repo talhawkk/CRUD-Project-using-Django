@@ -1,5 +1,14 @@
 {% extends 'enroll/home.html' %}
 {%block content %}
-<h4>Add and show student</h4>
+<div class="row">
+    <div class="col-sm-4">
+        <h4 class="text-center alert alert-info">Add New Student</h4>
+        <form action="", method="POST">{% csrf_token %}
+            {{form.as_p}}
+            
+            <button type="submit" class="btn btn-success">Add</button>
+        </form>
+    </div>
 
+</div>
 {% endblock content %}
