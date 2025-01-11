@@ -3,31 +3,27 @@ from .models import Student
 from .forms import StudentForm
 # Create your views here.
 def show(request):
-    if request.method=='POST':
-        fm=StudentForm(request.POST)
-        if fm.is_valid():
-            # print(fm.cleaned_data)
-            # nm=fm.cleaned_data['name']
-            # em=fm.cleaned_data['email']
-            # pw=fm.cleaned_data['password']
-            # st=Student(name=nm,email=em,password=pw)
-            # st.save()
-            fm.save()
-            # return render(request,'enroll/home.html',{'form':fm.cleaned_data})
-    else:
-        fm=StudentForm()
-    return render(request,'enroll/home.html',{'form':fm})
+    # if request.method=='POST':
+    #     fm=StudentForm(request.POST)
+    #     if fm.is_valid():
+    #         # print(fm.cleaned_data)
+    #         # nm=fm.cleaned_data['name']
+    #         # em=fm.cleaned_data['email']
+    #         # pw=fm.cleaned_data['password']
+    #         # st=Student(name=nm,email=em,password=pw)
+    #         # st.save()
+    #         fm.save()
+    #         # return render(request,'enroll/home.html',{'form':fm.cleaned_data})
+    # else:
+        # fm=StudentForm()
+    return render(request,'enroll/home.html',)
 
 
 def addshow(request):
     if request.method=='POST':
         fm=StudentForm(request.POST)
         if fm.is_valid():
-            # print(fm.cleaned_data)
-            # nm=fm.cleaned_data['name']
-            # em=fm.cleaned_data['email']
-            # pw=fm.cleaned_data['password']
-            # st=Student(name=nm,email=em,password=pw)
+           
             fm.save()
             fm=StudentForm()
 
@@ -45,6 +41,14 @@ def delete(request,id):
         return HttpResponseRedirect('/')
 
 
-def update(request):
-
-    return render(request,'enroll/update.html')
+def update(request,id):
+    if request.method=='POST':
+        pi=Student.objects.get(pk=id)
+        fm=StudentForm(request.POST, instance=pi)
+        if fm.is_valid():
+            fm.save()
+            return HttpResponseRedirect('/')
+    else:
+        pi=Student.objects.get(pk=id)
+        fm=StudentForm(instance=pi)
+    return render(request,'enroll/update.html',{'form':fm})
