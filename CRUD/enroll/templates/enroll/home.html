@@ -1,0 +1,46 @@
+{% extends 'enroll/base.html' %}
+{% block content %}
+<!-- Hero Section -->
+<div class="text-center py-5" style="background: linear-gradient(135deg, #6c63ff, #6dc8f3); color: white;">
+    <h1 class="display-4 fw-bold">Welcome to CRUD by TALHAwkk</h1>
+    <p class="lead mt-3">A simple, professional, and responsive project to manage your data.</p>
+    <a href="{% url 'addshow' %}" class="btn btn-outline-light btn-lg mt-4">Get Started</a>
+</div>
+
+<!-- Features Section -->
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Key Features</h2>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-4">
+                <i class="fas fa-plus-circle fa-3x text-success mb-3"></i>
+                <h5>Add New Records</h5>
+                <p class="text-muted">Easily add new students with our user-friendly form.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-4">
+                <i class="fas fa-edit fa-3x text-primary mb-3"></i>
+                <h5>Edit Records</h5>
+                <p class="text-muted">Edit existing data with just one click.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-4">
+                <i class="fas fa-trash-alt fa-3x text-danger mb-3"></i>
+                <h5>Delete Records</h5>
+                <p class="text-muted">Remove data safely and efficiently.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="text-center py-4 mt-5" style="background-color: #f8f9fa;">
+    <p class="mb-2">CRUD Project by <strong>TALHAwkk</strong></p>
+    <div>
+        <a href="https://github.com/talhawkk" class="me-3"><i class="fab fa-github fa-2x"></i></a>
+        <a href="https://www.linkedin.com" class="me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+    </div>
+</footer>
+{% endblock content %}

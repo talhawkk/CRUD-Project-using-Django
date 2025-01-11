@@ -16,7 +16,7 @@ def show(request):
     #         # return render(request,'enroll/home.html',{'form':fm.cleaned_data})
     # else:
         # fm=StudentForm()
-    return render(request,'enroll/base.html',)
+    return render(request,'enroll/home.html',)
 
 
 def addshow(request):
